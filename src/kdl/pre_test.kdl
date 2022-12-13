@@ -1,0 +1,17 @@
+ctr {Foo a b}
+ctr {Bar a b}
+
+fun (Test t) {
+  (Test {Foo a b}) = (+ a b)
+  (Test {Bar a b}) = (- a b)
+}
+
+fun (Loop n) {
+  (Loop #0) = (Test {Foo #10 #5})
+  (Loop x)  = 
+    dup x0 x1 = x;
+    let c = (If (== (% x0 #2) #0) {Foo #10 #5} {Bar #10 #5});
+    let ~ = (Test c);
+    (Loop (- x1 #1))
+}
+

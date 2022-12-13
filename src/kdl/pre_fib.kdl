@@ -1,0 +1,5 @@
+fun (Fib n) {
+  (Fib #0) = #1
+  (Fib #1) = #1
+  (Fib n) = dup n0 n1 = n; (+ (Fib (- n0 #1)) (Fib (- n1 #2)))
+}
